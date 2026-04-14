@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TanyaJawab PerformanceMarketing</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3/dist/umd/supabase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: sans-serif; background: #f7f7f7; color: #222; }
@@ -223,6 +223,7 @@
       const card = div('hero-card');
       card.onclick = () => setState({ view: 'detail', selected: featured });
 
+      const q = div('hero-q'); q.textContent = `"${featured.question}"`;
       const meta = div('hero-meta'); meta.textContent = `${featured.name} · ${featured.job} · ${featured.date}`;
 
       const bubbles = div('bubbles');
