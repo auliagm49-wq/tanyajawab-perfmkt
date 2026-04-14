@@ -223,7 +223,6 @@
       const card = div('hero-card');
       card.onclick = () => setState({ view: 'detail', selected: featured });
 
-      const q = div('hero-q'); q.textContent = `"${featured.question}"`;
       const meta = div('hero-meta'); meta.textContent = `${featured.name} · ${featured.job} · ${featured.date}`;
 
       const bubbles = div('bubbles');
@@ -237,7 +236,7 @@
         bubbles.append(aWrap);
       }
       const link = div('explore-link'); link.textContent = 'Baca selengkapnya →';
-      card.append(q, meta, bubbles, link);
+      card.append(meta, bubbles, link);
       page.append(label, card);
     }
 
