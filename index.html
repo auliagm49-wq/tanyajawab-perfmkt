@@ -223,7 +223,7 @@
       const card = div('hero-card');
       card.onclick = () => setState({ view: 'detail', selected: featured });
 
-      const meta = div('hero-meta'); meta.textContent = `${featured.name} · ${featured.job} · ${featured.date}`;
+      const meta = div('hero-meta'); meta.textContent = `${featured.name} · ${featured.job}`;
 
       const bubbles = div('bubbles');
       const bq = div('bubble bubble-q'); bq.textContent = featured.question;
@@ -246,7 +246,7 @@
       thumbs.forEach(p => {
         const card = div('card');
         card.onclick = () => setState({ view: 'detail', selected: p });
-        const meta = div('card-meta'); meta.textContent = `${p.name} · ${p.job} · ${p.date}`;
+        const meta = div('card-meta'); meta.textContent = `${p.name} · ${p.job}`;
         const bq = div('bubble bubble-q'); bq.style.fontSize = '13px'; bq.style.marginTop = '8px'; bq.textContent = p.question.slice(0, 90) + (p.question.length > 90 ? '...' : '');
         const lnk = div('card-link'); lnk.textContent = 'Baca selengkapnya →';
         card.append(meta, bq, lnk);
