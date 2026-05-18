@@ -291,7 +291,7 @@
       const avA = div('avatar avatar-author'); avA.textContent = 'A';
       const aSide = div('');
       const aAuth = div('bubble-author'); aAuth.textContent = 'Tim Admin';
-      const ba = div('bubble bubble-a'); ba.textContent = p.answer;
+      const ba = div('bubble bubble-a'); ba.innerHTML = p.answer.replace(/\n/g, '<br>');
       aSide.append(aAuth, ba);
       aRow.append(avA, aSide);
       wrap.append(aRow);
