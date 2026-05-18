@@ -231,7 +231,7 @@
       if (featured.answer) {
         const aWrap = div(''); aWrap.style.alignSelf = 'flex-end'; aWrap.style.maxWidth = '85%';
         const auth = div('bubble-author'); auth.textContent = 'Tim Admin';
-        const ba = div('bubble bubble-a'); ba.textContent = featured.answer.slice(0, 90) + (featured.answer.length > 90 ? '...' : '');
+        const ba = div('bubble bubble-a'); ba.innerHTML = (featured.answer.slice(0, 90) + (featured.answer.length > 90 ? '...' : '')).replace(/\n/g, '<br>');
         aWrap.append(auth, ba);
         bubbles.append(aWrap);
       }
