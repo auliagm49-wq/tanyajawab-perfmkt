@@ -464,11 +464,20 @@
         row.append(name, badge);
         const q = el('div', { style: 'font-size:13px;color:#666;margin-top:6px' }); q.textContent = `"${p.question.slice(0, 80)}..."`;
         const editBtn = el('button', { class: 'btn-outline', style: 'margin-top:10px;font-size:12px;padding:6px 14px' }, 'Edit Jawaban');
+        const editArea = el('textarea', { style: 'display:none;width:100%;min-height:160px;margin-top:10px;border:1.5px solid #6C63FF;border-radius:8px;padding:10px;font-size:14px;font-family:sans-serif;box-sizing:border-box' });
+        editArea.value = p.answer;
+        const saveBtn = el('button', { class: 'btn-primary', style: 'display:none;margin-top:8px' }, 'Simpan Perubahan');
         editBtn.onclick = () => {
-          const newAnswer = prompt('Edit jawaban:', p.answer);
-          if (newAnswer !== null && newAnswer.trim()) publishQuestion(p.id, newAnswer.trim());
+          editArea.style.display = 'block';
+          saveBtn.style.display = 'inline-block';
+          editBtn.style.display = 'none';
         };
-        card.append(row, q, editBtn);
+        saveBtn.onclick = async () => {
+          if (editArea.value.trim()) {
+            await publishQuestion(p.id, editArea.value.trim());
+          }
+        };
+        card.append(row, q, editBtn, editArea, saveBtn);
         page.append(card);
       });
     }
