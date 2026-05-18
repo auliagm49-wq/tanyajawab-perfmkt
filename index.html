@@ -446,7 +446,6 @@
       const rejBtn = el('button', { class: 'btn-danger' }, 'Tolak');
       rejBtn.onclick = async () => { if (confirm('Yakin mau tolak & hapus pertanyaan ini?')) await rejectQuestion(p.id); };
       actions.append(pubBtn, rejBtn);
-
       card.append(top, qbox, lbl, ta, actions);
       page.append(card);
     });
