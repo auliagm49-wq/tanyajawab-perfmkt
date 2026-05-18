@@ -463,7 +463,12 @@
         const badge = div('badge-published'); badge.textContent = 'Tayang';
         row.append(name, badge);
         const q = el('div', { style: 'font-size:13px;color:#666;margin-top:6px' }); q.textContent = `"${p.question.slice(0, 80)}..."`;
-        card.append(row, q);
+        const editBtn = el('button', { class: 'btn-outline', style: 'margin-top:10px;font-size:12px;padding:6px 14px' }, 'Edit Jawaban');
+        editBtn.onclick = () => {
+          const newAnswer = prompt('Edit jawaban:', p.answer);
+          if (newAnswer !== null && newAnswer.trim()) publishQuestion(p.id, newAnswer.trim());
+        };
+        card.append(row, q, editBtn);
         page.append(card);
       });
     }
