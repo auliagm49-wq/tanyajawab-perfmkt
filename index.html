@@ -358,6 +358,9 @@
       if (!fd.email.trim() || !/\S+@\S+\.\S+/.test(fd.email)) errors.email = 'Email tidak valid';
       if (!fd.question.trim()) errors.question = 'Wajib diisi';
       if (Object.keys(errors).length) { setState({ formErrors: errors }); return; }
+      submitBtn.textContent = 'Mengirim...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
       await submitQuestion(state.formData);
       setState({ submitted: true });
     };
